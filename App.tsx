@@ -80,21 +80,23 @@ export default function Game() {
       description = "Go to game start";
     }
     return (
-      <li key={move}>
-        <button onClick={() => jumpTo(move)}>{description}</button>
-      </li>
+      <View key={move}>
+        <Pressable onPress={() => jumpTo(move)}>
+          <Text>{description}</Text>
+        </Pressable>
+      </View>
     );
   });
 
   return (
-    <div className="game">
-      <div className="game-board">
+    <View style={styles.game}>
+      <View style={styles.gameBoard}>
         <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
-      </div>
-      <div className="game-info">
-        <ol>{moves}</ol>
-      </div>
-    </div>
+      </View>
+      <View style={styles.gameInfo}>
+        <View>{moves}</View>
+      </View>
+    </View>
   );
 }
 
@@ -122,4 +124,7 @@ const styles = StyleSheet.create({
   square: {},
   status: {},
   boardRow: {},
+  game: {},
+  gameBoard: {},
+  gameInfo: {},
 });
