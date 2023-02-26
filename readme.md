@@ -9,6 +9,39 @@ This project was inspired by a tweet from [@mattcarrollcode](https://twitter.com
   <video src="https://user-images.githubusercontent.com/17254885/221388108-83e97808-5b96-473d-b108-afa05c442522.mp4" height="640">
 </p>
 
+## Diffs between React and React Native
+
+### Square component
+To use Square component diffs in React Native, switch your web button tag to the [Pressable component](https://reactnative.dev/docs/pressable) and wrap text in a [Text component](https://reactnative.dev/docs/text). Note that all text in React Native needs to be wrapped in <Text> tags.
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/17254885/221440271-1484fe50-c7d2-4d8d-9c8d-a55eb1fc8cd0.png">
+</p>
+
+
+### Board component
+To convert a Board component from web to React Native, simply replace the div tag with the [View component](https://reactnative.dev/docs/view), and ensure that any text is wrapped in a Text component.
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/17254885/221440263-12ad91c2-92bf-4079-9b82-358a34a00de9.png">
+</p>
+
+### Game component
+For the last Game component, note that there are no `li` or `ol` components in React Native. Instead, use the View component to wrap any list items, replace the button tag with Pressable, and ensure that any text values are enclosed within a Text component.
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/17254885/221440267-c9326c10-33b9-4df7-9be4-6ae099344746.png">
+</p>
+
+React Native offers list components like [ScrollView](https://reactnative.dev/docs/using-a-scrollview) and [FlatList/SectionList](https://reactnative.dev/docs/using-a-listview). In my example, View was used since the list items always fit within the content.
+
+### Styles
+In the last difference, the styles are defined using StyleSheet, which is a built-in CSS-in-JS solution in React Native, rather than using classNames like in web development.
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/17254885/221440273-01a23851-ba24-4ce7-9faf-b2ae7d0d1f0b.png">
+</p>
+
 ## Prerequisites
 
 Before running this project, ensure that you have the following installed:
