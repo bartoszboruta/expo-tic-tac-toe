@@ -11,7 +11,7 @@ function Square({ value, onSquarePress }) {
 }
 
 function Board({ xIsNext, squares, onPlay }) {
-  function handleClick(i) {
+  function handlePress(i) {
     if (calculateWinner(squares) || squares[i]) {
       return;
     }
@@ -34,22 +34,24 @@ function Board({ xIsNext, squares, onPlay }) {
 
   return (
     <>
-      <div className="status">{status}</div>
-      <div className="board-row">
-        <Square value={squares[0]} onSquareClick={() => handleClick(0)} />
-        <Square value={squares[1]} onSquareClick={() => handleClick(1)} />
-        <Square value={squares[2]} onSquareClick={() => handleClick(2)} />
-      </div>
-      <div className="board-row">
-        <Square value={squares[3]} onSquareClick={() => handleClick(3)} />
-        <Square value={squares[4]} onSquareClick={() => handleClick(4)} />
-        <Square value={squares[5]} onSquareClick={() => handleClick(5)} />
-      </div>
-      <div className="board-row">
-        <Square value={squares[6]} onSquareClick={() => handleClick(6)} />
-        <Square value={squares[7]} onSquareClick={() => handleClick(7)} />
-        <Square value={squares[8]} onSquareClick={() => handleClick(8)} />
-      </div>
+      <View style={styles.status}>
+        <Text>{status}</Text>
+      </View>
+      <View style={styles.boardRow}>
+        <Square value={squares[0]} onSquarePress={() => handlePress(0)} />
+        <Square value={squares[1]} onSquarePress={() => handlePress(1)} />
+        <Square value={squares[2]} onSquarePress={() => handlePress(2)} />
+      </View>
+      <View style={styles.boardRow}>
+        <Square value={squares[3]} onSquarePress={() => handlePress(3)} />
+        <Square value={squares[4]} onSquarePress={() => handlePress(4)} />
+        <Square value={squares[5]} onSquarePress={() => handlePress(5)} />
+      </View>
+      <View style={styles.boardRow}>
+        <Square value={squares[6]} onSquarePress={() => handlePress(6)} />
+        <Square value={squares[7]} onSquarePress={() => handlePress(7)} />
+        <Square value={squares[8]} onSquarePress={() => handlePress(8)} />
+      </View>
     </>
   );
 }
@@ -118,4 +120,6 @@ function calculateWinner(squares) {
 
 const styles = StyleSheet.create({
   square: {},
+  status: {},
+  boardRow: {},
 });
