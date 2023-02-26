@@ -1,3 +1,5 @@
+import { View, Text, Pressable, StyleSheet } from "react-native";
+
 import { useState } from "react";
 
 function Square({ value, onSquareClick }) {
