@@ -2,7 +2,8 @@ import { View, Text, Pressable, StyleSheet } from "react-native";
 
 import { useState } from "react";
 
-function Square({ value, onSquarePress }) {
+type Square = { value: string; onSquarePress: () => void };
+function Square({ value, onSquarePress }: Square) {
   return (
     <Pressable style={styles.square} onPress={onSquarePress}>
       <Text>{value}</Text>
@@ -10,8 +11,13 @@ function Square({ value, onSquarePress }) {
   );
 }
 
-function Board({ xIsNext, squares, onPlay }) {
-  function handlePress(i) {
+type Board = {
+  xIsNext: boolean;
+  squares: string[];
+  onPlay: (nextSquares: string[]) => void;
+};
+function Board({ xIsNext, squares, onPlay }: Board) {
+  function handlePress(i: number) {
     if (calculateWinner(squares) || squares[i]) {
       return;
     }
@@ -62,13 +68,13 @@ export default function Game() {
   const xIsNext = currentMove % 2 === 0;
   const currentSquares = history[currentMove];
 
-  function handlePlay(nextSquares) {
+  function handlePlay(nextSquares: string[]) {
     const nextHistory = [...history.slice(0, currentMove + 1), nextSquares];
     setHistory(nextHistory);
     setCurrentMove(nextHistory.length - 1);
   }
 
-  function jumpTo(nextMove) {
+  function jumpTo(nextMove: number) {
     setCurrentMove(nextMove);
   }
 
@@ -100,7 +106,7 @@ export default function Game() {
   );
 }
 
-function calculateWinner(squares) {
+function calculateWinner(squares: string[]) {
   const lines = [
     [0, 1, 2],
     [3, 4, 5],
