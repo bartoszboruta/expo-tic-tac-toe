@@ -121,9 +121,20 @@ function calculateWinner(squares) {
 }
 
 const styles = StyleSheet.create({
-  square: {},
+  boardRow: {
+    flexDirection: "row",
+  },
+  square: {
+    alignItems: "center",
+    aspectRatio: 1,
+    backgroundColor: "#fff",
+    borderColor: "#999",
+    borderWidth: 1,
+    flex: 1,
+    justifyContent: "center",
+    margin: -1,
+  },
   status: {},
-  boardRow: {},
   game: {},
   gameBoard: {},
   gameInfo: {},
