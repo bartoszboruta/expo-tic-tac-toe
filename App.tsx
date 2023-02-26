@@ -2,11 +2,11 @@ import { View, Text, Pressable, StyleSheet } from "react-native";
 
 import { useState } from "react";
 
-function Square({ value, onSquareClick }) {
+function Square({ value, onSquarePress }) {
   return (
-    <button className="square" onClick={onSquareClick}>
-      {value}
-    </button>
+    <Pressable style={styles.square} onPress={onSquarePress}>
+      <Text>{value}</Text>
+    </Pressable>
   );
 }
 
@@ -115,3 +115,7 @@ function calculateWinner(squares) {
   }
   return null;
 }
+
+const styles = StyleSheet.create({
+  square: {},
+});
