@@ -134,8 +134,17 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     margin: -1,
   },
-  status: {},
-  game: {},
+  status: {
+    marginBottom: 16,
+  },
+  game: {
+    flex: 1,
+    justifyContent: "center",
+    margin: 16,
+  },
   gameBoard: {},
-  gameInfo: {},
+  gameInfo: {
+    marginTop: 16,
+    height: 250,
+  },
 });
